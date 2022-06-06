@@ -144,9 +144,9 @@ function x_guardar()
         $.post("funciones/calcular.php", 
         {
             tamano_pantalla: $("#x_tamano_pantalla").val(),
+            tipo_instalacion: $("#x_tipo_instalacion").val(),
             tamano_horizontal: $("#x_tamano_horizontal").val(),
             tamano_vertical: $("#x_tamano_vertical").val(),
-            tipo_instalacion: $("#x_tipo_instalacion").val(),
             uso: $("#x_uso").val(),
             cantidad_camaras: $("#x_cantidad_camaras").val(),
             cliente: $("#x_cliente").val(),
@@ -185,7 +185,7 @@ function x_validar()
 {
     var resultado = 0;
 
-    var arreglo = ["x_tamano_pantalla","x_tamano_horizontal","x_tamano_vertical","x_tipo_instalacion","x_uso","x_cantidad_camaras","x_nombre","x_cliente"];
+    var arreglo = ["x_tamano_pantalla","x_tipo_instalacion","x_tamano_horizontal","x_tamano_vertical","x_uso","x_cantidad_camaras","x_nombre","x_cliente"];
     for(x=0; x<arreglo.length; x++)
     {
         var id = "#" + arreglo[x];

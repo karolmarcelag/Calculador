@@ -14,9 +14,9 @@ $validar = strpos($respuesta,"true");
 if($validar == true)
 {
     $tamano_pantalla = $_POST["tamano_pantalla"];
+    $tipo_instalacion = $_POST["tipo_instalacion"];
     $tamano_horizontal = $_POST["tamano_horizontal"];
     $tamano_vertical = $_POST["tamano_vertical"];
-    $tipo_instalacion = $_POST["tipo_instalacion"];
     $uso = $_POST["uso"];
     if($uso == "1")
     {
@@ -31,15 +31,15 @@ if($validar == true)
     {
         $conjunto. = "<li>Tamaño de pantalla: $tamano_pantalla</li>";
     }
-    
-    if($tamano_horizontal != "" && $tamano_vertical != "")
-    {
-        $conjunto. = "<li>$tamano_horizontal x $tamano_vertical</li>";
-    }
 
     if($tipo_instalacion != "")
     {
         $conjunto. = "<li>Tipo de instalación: $tipo_instalacion</li>";
+    }
+    
+    if($tamano_horizontal != "" && $tamano_vertical != "")
+    {
+        $conjunto. = "<li>$tamano_horizontal x $tamano_vertical</li>";
     }
 
     switch($uso)

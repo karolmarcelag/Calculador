@@ -150,16 +150,23 @@ button
 .gabinete
 {
     background-color: #3c3c3c;
+    border: 1px solid #777;
     float: left;
+    height: 70px;
 }
 
-.pantallaMenos10, .gabineteMenos10
+.gabineteMas10
+{
+    height: 22px;
+}
+
+.pantallaMenos10
 {
     width: 10%;
     line-height: 60px;
 }
 
-.pantallaMas10, .gabineteMas10
+.pantallaMas10
 {
     width: 5%;
     line-height: 30px;
@@ -193,14 +200,19 @@ button
         width: 41%;
     }
 
-    .pantallaMenos10, .gabineteMenos10
+    .pantallaMenos10
     {
         line-height: 18px;
     }
 
-    .pantallaMas10, .gabineteMas10
+    .pantallaMas10
     {
         line-height: 18px;
         font-size: 9px;
+    }
+
+    .gabinete
+    {
+        height: 23px;
     }
   }

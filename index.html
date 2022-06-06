@@ -32,15 +32,7 @@
                     <option value="55">55"</option>
                 </select>
             </div>
-            <div class="x_subcuadro">
-                <span class="x_subtitulo">Tamaño Videowall</span><span class='x_campo_obligatorio'>*</span><br>
-                <input type="number" id="x_tamano_horizontal" onchange="x_mostrar_visual()" value="1" min="1" max="20" disabled><span style="margin: 1%;">X</span><input type="number" id="x_tamano_vertical" onchange="x_mostrar_visual()" value="1" min="1" max="20" disabled>
-                <button onclick="x_ayuda_tamano_videowall()">?</button>
-                <span id="tamano_videowall"></span>
-            </div>
-            <span id="x_medidas"></span><br>
-            <span id="x_visual"></span>
-            <div class="x_subcuadro" style="padding-top: 5px;">
+             <div class="x_subcuadro" style="padding-top: 5px;">
                 <span class="x_subtitulo">Tipo de instalación</span><span class='x_campo_obligatorio'>*</span>
                 <select id="x_tipo_instalacion" onchange="x_mostrar_visual()">
                     <option value=""></option>
@@ -50,6 +42,14 @@
                 <button onclick="x_ayuda_tipo_instalacion()">?</button>
                 <span id="tipo_inst"></span>
             </div>
+            <div class="x_subcuadro">
+                <span class="x_subtitulo">Tamaño Videowall</span><span class='x_campo_obligatorio'>*</span><br>
+                <input type="number" id="x_tamano_horizontal" onchange="x_mostrar_visual()" value="1" min="1" max="20" disabled><span style="margin: 1%;">X</span><input type="number" id="x_tamano_vertical" onchange="x_mostrar_visual()" value="1" min="1" max="20" disabled>
+                <button onclick="x_ayuda_tamano_videowall()">?</button>
+                <span id="tamano_videowall"></span>
+            </div>
+            <span id="x_medidas"></span><br>
+            <span id="x_visual"></span>
             <div class="x_subcuadro">
                 <span class="x_subtitulo">Uso</span><span class='x_campo_obligatorio'>*</span><br>
                 <select id="x_uso" onchange="x_validar_uso()">

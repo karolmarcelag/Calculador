@@ -1,0 +1,206 @@
+h1, h2, h3, h4, h5, h6 
+{
+    font-family: 'Rubik', Helvetica, Arial, sans-serif;
+}
+
+h3
+{
+    font-size: 24px;
+}
+
+.barra_superior
+{
+    background-color: #3c3c3c;
+    border-color: #7B7B7B;
+    border-bottom: none;
+    z-index: 1000;
+    position: absolute;
+    width: 100%;
+}
+
+/*.barra_inferior
+{
+    background-color: #f5f5f5;
+    border-top: 1px solid #ccc;
+    color: #4a4a4a;
+    height: 10%;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}*/
+
+input#x_tamano_horizontal, input#x_tamano_vertical
+{
+    width: 45.69%;
+}
+
+.x_contenido
+{
+    width: 80%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 10%;
+    font-family: sans-serif;
+    font-size: 14px;
+    height: auto;
+    background: rgb(249, 249, 249);
+    box-shadow: rgba(130, 130, 130, 0.43) 1px 1px 23px 1px;
+    min-height: calc(100vh - 283px);
+    padding-bottom: 10px;
+    padding: 50px 15px 10px;
+}
+
+.x_cuadro
+{
+    padding: 25px;
+}
+
+input, select, textarea, button
+{
+    height: 31px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857;
+    color: #555555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+}
+
+button
+{
+    background: none;
+}
+
+select
+{
+    width:100%
+}
+
+textarea
+{
+    resize: vertical;
+    height: 6%;
+}
+
+button
+{
+    width: 5%;
+    padding: initial;
+}
+
+.enviar
+{
+    color: #fff;
+    background-color: #005CB9;
+    border-color: #004fa0;
+}
+
+.x_campo_obligatorio
+{
+    color:red;
+    font-weight: bold;
+}
+
+.x_subcuadro
+{
+    padding-bottom: 5px;
+    width: 100%;
+    float: left;
+}
+
+.x_div_ejemplo
+{
+    background: white;
+    width: 60%;
+    position: absolute;
+    right: 0;
+    margin-right: 20px;
+    margin-top: 5px;
+    border: solid 1px #a9a9a9;
+    padding: 12px;
+    border-radius: 4px;
+    z-index: 1;
+}
+
+.x_btn_cerrar
+{
+    position: absolute;
+    right: 0;
+    margin-right: 10px;
+    cursor: hand;
+}
+
+#x_referencia
+{
+    width: 94%;
+}
+
+.pantalla
+{
+    background-color: #9dcdfd;
+    border: 1px solid #777;
+    text-align: center;
+    float: left;
+}
+
+.gabinete
+{
+    background-color: #3c3c3c;
+    float: left;
+}
+
+.pantallaMenos10, .gabineteMenos10
+{
+    width: 10%;
+    line-height: 60px;
+}
+
+.pantallaMas10, .gabineteMas10
+{
+    width: 5%;
+    line-height: 30px;
+}
+
+#x_tipo_instalacion
+{
+    width: 94%;
+}
+
+@media only screen and (max-width: 600px) 
+{
+    button
+    {
+        width: 11%;
+        padding: 6px;
+    }
+
+    .x_div_ejemplo
+    {
+        width: 90%;
+    }
+
+    #x_tipo_instalacion
+    {
+        width: 87%;
+    }
+
+    input#x_tamano_horizontal, input#x_tamano_vertical
+    {
+        width: 41%;
+    }
+
+    .pantallaMenos10, .gabineteMenos10
+    {
+        line-height: 18px;
+    }
+
+    .pantallaMas10, .gabineteMas10
+    {
+        line-height: 18px;
+        font-size: 9px;
+    }
+  }

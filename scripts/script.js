@@ -45,14 +45,17 @@ function x_mostrar_visual()
     var H = $("#x_tamano_horizontal").val()
     var V = $("#x_tamano_vertical").val()
     var claseCSS = "pantallaMenos10"
+    var claseCSS2 = "gabineteMas10"
 
     if(H>10)
     {
         claseCSS = "pantallaMas10"
+        claseCSS2 = "gabineteMas10"
     }
     else
     {
         claseCSS = "pantallaMenos10"
+        claseCSS2 = "gabinete"
     }
 
     for(x=0; x<V; x++)
@@ -68,7 +71,7 @@ function x_mostrar_visual()
     {
         tamano_horizontal = H*1.02
         tamano_vertical = V*.58+.8
-        codigo+= montaje_piso(H, claseCSS)
+        codigo+= montaje_piso(H, claseCSS, claseCSS2)
     }
     else if($("#x_tamano_pantalla").val() == 46)
     {
@@ -79,7 +82,7 @@ function x_mostrar_visual()
     {
         tamano_horizontal = H*1.21
         tamano_vertical = V*.68+.8
-        codigo+= montaje_piso(H, claseCSS)
+        codigo+= montaje_piso(H, claseCSS, claseCSS2)
     }
     else
     {
@@ -91,12 +94,12 @@ function x_mostrar_visual()
     $("#x_medidas").html("<div style='float: left; width: 100%;'>Medida total horizontal: <b>" + tamano_horizontal.toFixed(2) + " m</b>, medida total vertical: <b>" + tamano_vertical.toFixed(2) + " m</b></div>")
 }
 
-function montaje_piso(_H, _claseCSS)
+function montaje_piso(_H, _claseCSS, claseCSS2)
 {
     var codigo = ""
     for(z=0; z<_H; z++)
     {
-        codigo+= "<div class='gabinete " + _claseCSS + "'></div>"
+        codigo+= "<div class='gabinete " + _claseCSS + " " + claseCSS2 + "'></div>"
     }
     codigo+= "<div style='width: 100%; float: left;'></div>"
     return codigo

@@ -26,7 +26,7 @@
             </div>
             <div class="x_subcuadro">
                 <span class="x_subtitulo">Tamaño de pantalla</span><span class='x_campo_obligatorio'>*</span>
-                <select id="x_tamano_pantalla" onchange="x_mostrar_visual()" onclick="desbloquear_tamano()">
+                <select id="x_tamano_pantalla" onchange="x_mostrar_visual()" onclick="desbloquear()">
                     <option value=""></option>
                     <option value="46">46"</option>
                     <option value="55">55"</option>
@@ -34,7 +34,7 @@
             </div>
              <div class="x_subcuadro">
                 <span class="x_subtitulo">Tipo de instalación</span><span class='x_campo_obligatorio'>*</span>
-                <select id="x_tipo_instalacion" onchange="x_mostrar_visual()">
+                <select id="x_tipo_instalacion" onchange="x_mostrar_visual()" disabled>
                     <option value=""></option>
                     <option value="1">Piso</option>
                     <option value="2">Pared</option>

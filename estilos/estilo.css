@@ -157,7 +157,7 @@ button
 
 .gabineteMas10
 {
-    height: 22px;
+    height: 35px;
 }
 
 .pantallaMenos10
@@ -214,5 +214,10 @@ button
     .gabinete
     {
         height: 23px;
+    }
+
+    .gabineteMas10
+    {
+        height: 19px;
     }
   }

@@ -8,17 +8,19 @@ var x=1;
     })
 })*/
 
-function desbloquear_tamano()
+function desbloquear()
 {
      if($("#x_tamano_pantalla").val() == 46 || 55)
      {
-         $("#x_tamano_horizontal").prop({"disabled":false})
-         $("#x_tamano_vertical").prop({"disabled":false})
+        $("#x_tamano_horizontal").prop({"disabled":false})
+        $("#x_tamano_vertical").prop({"disabled":false})
+        $("#x_tipo_instalacion").prop({"disabled":false})
      }
      else
      {
         $("#x_tamano_horizontal").prop({"disabled":true})
         $("#x_tamano_vertical").prop({"disabled":true})
+        $("#x_tipo_instalacion").prop({"disabled":true})
     }
 }
 

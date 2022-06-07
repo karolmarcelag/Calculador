@@ -36,11 +36,130 @@ if($validar == true)
     {
         $conjunto. = "<li>Tipo de instalación: $tipo_instalacion</li>";
     }
+
+    switch($tipo_instalacion)
+    {
+        case "1":
+        {
+            $tipo_instalacion = "piso";
+        }
+        case "2":
+        {
+            $tipo_instalacion = "pared";
+        }
+        break;
+    }
+    $conjunto. = "<li>Tipo de instalación: $tipo_instalacion</li>";
     
     if($tamano_horizontal != "" && $tamano_vertical != "")
     {
         $conjunto. = "<li>$tamano_horizontal x $tamano_vertical</li>";
     }
+
+
+
+    $cantidad_decodificador = {
+        if($cantidad_camaras < 129)
+        {
+            $cantidad_decodificador = "1";
+        }
+        elseif($cantidad_camaras < 257)
+        {
+            $cantidad_decodificador = "2";
+        }
+        elseif($cantidad_camaras < 385)
+        {
+            $cantidad_decodificador = "3";
+        }
+        else
+        {
+            $cantidad_decodificador = "4";
+        }
+    }
+
+    $precio_decodificador = {
+        if($cantidad_camaras < 129)
+        {
+            $precio_decodificador = "1400";
+        }
+        elseif($cantidad_camaras < 257)
+        {
+            $precio_decodificador = (1400 * 2);
+        }
+        elseif($cantidad_camaras < 385)
+        {
+            $precio_decodificador = (1400 * 3);
+        }
+        else
+        {
+            $precio_decodificador = (1400 * 4);
+        }
+    }
+
+    $cantidad_controlador = {
+        if(($tamano_horizontal * $tamano_vertical) < 5)
+        {
+            $cantidad_controlador = "1";
+        }
+        elseif(($tamano_horizontal * $tamano_vertical) < 9)
+        {
+            $cantidad_controlador = "2";
+        }
+        elseif(($tamano_horizontal * $tamano_vertical) < 13)
+        {
+            $cantidad_controlador = "3";
+        }
+        elseif(($tamano_horizontal * $tamano_vertical) < 17)
+        {
+            $cantidad_controlador = "4";
+        }
+        else
+        {
+            $cantidad_controlador = "No Posible";
+        }
+    }
+
+    $precio_controlador = {
+        if(($tamano_horizontal * $tamano_vertical) < 5)
+        {
+            $precio_controlador = 400;
+        }
+        elseif(($tamano_horizontal * $tamano_vertical) < 9)
+        {
+            $precio_controlador = (400 * 2);
+        }
+        elseif(($tamano_horizontal * $tamano_vertical) < 13)
+        {
+            $precio_controlador = (400 * 3);
+        }
+        elseif(($tamano_horizontal * $tamano_vertical) < 17)
+        {
+            $precio_controlador = (400 * 4);
+        }
+        else
+        {
+            $precio_controlador = "No Posible";
+        }
+    }
+
+    $base_piso = {
+        if($tipo_instalacion == 1)
+        {
+            $base_piso = ($tamano_horizontal * {
+                if($tamano_pantalla == 55)
+                {
+                    260;
+                }
+                else
+                {
+                    240;
+                }})
+        }
+        else
+        $base_piso = 0;
+    }
+
+
 
     switch($uso)
     {
@@ -66,6 +185,8 @@ if($validar == true)
     {
         $conjunto. = "<li>Cantidad de cámaras a ver simultaneamente: $cantidad_camaras</li>";
     }
+
+    echo $conjunto;
 
     //enviar correos
     $para1 = $correo;

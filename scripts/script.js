@@ -144,8 +144,8 @@ function x_guardar()
 {
     if(x_validar() == true)
     {
-        $("#x_esperar").html("<img src='imagenes/esperar.gif' style='width:34px; position:absolute; margin-left:50%; left:-17px'>");
-        $("#x_guardar").css({"display":"none"});
+        //$("#x_esperar").html("<img src='imagenes/esperar.gif' style='width:34px; position:absolute; margin-left:50%; left:-17px'>");
+        //$("#x_guardar").css({"display":"none"});
         $.post("funciones/calcular.php", 
         {
             tamano_pantalla: $("#x_tamano_pantalla").val(),
@@ -163,7 +163,7 @@ function x_guardar()
         function(resultado)
         {
             console.log(resultado)
-            switch("OK")
+            /*switch("OK")
             {
                 case "OK":
                 {
@@ -175,13 +175,13 @@ function x_guardar()
                 {
                     alert("Error al validar reCAPTCHA, su dirección IP fue agregada a la lista de investigación.\n\nPor favor espere un momento para validar otro.");
                 }
-                break;*/
+                break;
                 default:
                 {
                     alert("Se produjo un error inesperado, por favor contacte al administrador.\n\nError: " + resultado);
                 }
                 break;
-            }
+            }*/
         });
     }
 }

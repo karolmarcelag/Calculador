@@ -26,10 +26,11 @@ if($validar == true)
     $nombre = $_POST["nombre"];
     $correo = $_POST["correo"];
     $vendedor = $_POST["vendedor"];
+    $conjunto = "";
 
     if($tamano_pantalla != "")
     {
-        $conjunto. = "<li>Tamaño de pantalla: $tamano_pantalla</li>";
+        $conjunto.= "<li>Tamaño de pantalla: $tamano_pantalla</li>";
     }
 
     if($tipo_instalacion != "")
@@ -58,23 +59,21 @@ if($validar == true)
 
 
 
-    $cantidad_decodificador = {
-        if($cantidad_camaras < 129)
-        {
-            $cantidad_decodificador = "1";
-        }
-        elseif($cantidad_camaras < 257)
-        {
-            $cantidad_decodificador = "2";
-        }
-        elseif($cantidad_camaras < 385)
-        {
-            $cantidad_decodificador = "3";
-        }
-        else
-        {
-            $cantidad_decodificador = "4";
-        }
+    if($cantidad_camaras < 129)
+    {
+        $cantidad_decodificador = 1;
+    }
+    elseif($cantidad_camaras < 257)
+    {
+        $cantidad_decodificador = 2;
+    }
+    elseif($cantidad_camaras < 385)
+    {
+        $cantidad_decodificador = 3;
+    }
+    else
+    {
+        $cantidad_decodificador = 4;
     }
 
     $precio_decodificador = {
@@ -157,6 +156,10 @@ if($validar == true)
         }
         else
         $base_piso = 0;
+    }
+
+    $soporte_pantalla = {
+
     }
 
 

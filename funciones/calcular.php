@@ -10,8 +10,9 @@ $respuesta = curl_exec ($ch); //recogemos la respuesta
 //$error = curl_error($ch); //o el error, por si falla
 curl_close ($ch); //y finalmente cerramos curl*/
 
-$validar = strpos($respuesta,"true");
-if($validar == true)
+//$validar = strpos($respuesta,"true");
+//if($validar == true)
+if(1 == 1)
 {
     $tamano_pantalla = $_POST["tamano_pantalla"];
     $tipo_instalacion = $_POST["tipo_instalacion"];
@@ -26,9 +27,14 @@ if($validar == true)
     $vendedor = $_POST["vendedor"];
     $conjunto = "";
 
+    echo ", Pantalla: ".$cantidad_pantalla = $tamano_horizontal * $tamano_vertical;
+    $cantidad_decodificador = 0;
+    $valor1_n1 = 0;
+    $valor1_n2 = 0;
+
     switch($tamano_pantalla)
     {
-        case "1":
+        case "46":
         {
             $tamano_pantalla = 46;
             if($tipo_instalacion == 1)
@@ -44,10 +50,10 @@ if($validar == true)
                 $valor_soporte_pantalla = 102;
                 $modelo_soporte_pantalla = "DS-DN4601W";
             }
-            $pantalla = [(($tamano_horizontal * $tamano_vertical) + 1) * 970.83]
+            $pantalla = (($cantidad_pantalla + 1) * 970.83);
             $modelo_pantalla = "DS-D2046LU-Y";
         }
-        case "2":
+        case "55":
         {
             $tamano_pantalla = 55;
             if($tipo_instalacion == 1)
@@ -63,14 +69,14 @@ if($validar == true)
                 $valor_soporte_pantalla = 109;
                 $modelo_soporte_pantalla = "DS-DN5501W";
             }
-            $pantalla = [(($tamano_horizontal * $tamano_vertical) + 1) * 850]
+            $pantalla = (($cantidad_pantalla + 1) * 850);
             $modelo_pantalla = "DS-D2055LU-Y";
         }
         break;
     }
     $conjunto.= "<li>Tamaño de pantalla: $tamano_pantalla pulgadas</li>";
     
-    $soporte_pantalla = [($tamano_horizontal * $tamano_vertical) * $valor_soporte_pantalla]
+    $soporte_pantalla = ($cantidad_pantalla * $valor_soporte_pantalla);
 
     switch($tipo_instalacion)
     {
@@ -79,7 +85,7 @@ if($validar == true)
             $tipo_instalacion = "piso";
             $valor_1 = "/VM";
             $componente_base_piso = "Base de Piso";
-            $cantidad_base_piso = $tamano_horizontal;
+            echo ", Base de Piso: ".$cantidad_base_piso = $tamano_horizontal;
 
         }
         case "2":
@@ -87,7 +93,7 @@ if($validar == true)
             $tipo_instalacion = "pared";
             $valor_1 = "";
             $componente_base_piso = " ";
-            $modelo_base_piso = " ":
+            $modelo_base_piso = " ";
             $cantidad_base_piso = " ";
         }
         break;
@@ -145,22 +151,22 @@ if($validar == true)
         {
             $uso = "Comercial";
 
-            if(($tamano_horizontal * $tamano_vertical) < 5)
+            if($cantidad_pantalla < 5)
             {
                 $cantidad_controlador = 1;
                 $precio_controlador = 400;
             }
-            elseif(($tamano_horizontal * $tamano_vertical) < 9)
+            elseif($cantidad_pantalla < 9)
             {
                 $cantidad_controlador = 2;
                 $precio_controlador = (400 * 2);
             }
-            elseif(($tamano_horizontal * $tamano_vertical) < 13)
+            elseif($cantidad_pantalla < 13)
             {
                 $cantidad_controlador = 3;
                 $precio_controlador = (400 * 3);
             }
-            elseif(($tamano_horizontal * $tamano_vertical) < 17)
+            elseif($cantidad_pantalla < 17)
             {
                 $cantidad_controlador = 4;
                 $precio_controlador = (400 * 4);
@@ -192,16 +198,16 @@ if($validar == true)
     }
     else
     {
-        $valor_f15 = "/" + $cantidad_decodificador;
+        $valor_f15 = "/".$cantidad_decodificador;
     }
 
-    if($j11 = "Decodificador")
+    if($j11 == "Decodificador")
     {
         $f15 = $valor_f15;
         $valor_2 = $f15;
         $modelo_j11 = "DS-6919UDI(B)";
         $n1 = $valor1_n1;
-        $cantidad_j11 = $n1;
+        echo ", Decodificador: ".$cantidad_j11 = $n1;
     }
     else
     {
@@ -209,7 +215,7 @@ if($validar == true)
         $valor_2 = $valor_3;
         $modelo_j11 = $valor_modelo_j11;
         $n1 = 0;
-        $cantidad_j11 = $valor_cantidad_j11;
+        echo ", Controlador: ".$cantidad_j11 = $valor_cantidad_j11;
     }
 
     if($cantidad_controlador == 1)
@@ -218,10 +224,10 @@ if($validar == true)
     }
     else
     {
-        $valor_f16 = "/" + $cantidad_controlador;
+        $valor_f16 = "/".$cantidad_controlador;
     }
 
-    if($j11 = "Controlador")
+    if($j11 == "Controlador")
     {
         $f16 = $valor_f16;
         $valor_3 = $f16;
@@ -238,8 +244,7 @@ if($validar == true)
         $valor_cantidad_j11 = 1;
     }
 
-    $cantidad_pantalla = $tamano_horizontal * $tamano_vertical;
-    $cantidad_soporte_pantalla = $cantidad_pantalla;
+    echo ", Soporte Pantalla: ".$cantidad_soporte_pantalla = $cantidad_pantalla;
 
 
     if($cantidad_camaras < 385)
@@ -269,7 +274,7 @@ if($validar == true)
         $valor1_n1 = $valor2_n1;
     }
 
-    if(($tamano_horizontal * $tamano_vertical) < 17)
+    if($cantidad_pantalla < 17)
     {
         $valor4_n2 = 4;
     }
@@ -278,7 +283,7 @@ if($validar == true)
         $valor4_n2 = 0;
     }
 
-    if(($tamano_horizontal * $tamano_vertical) < 13)
+    if($cantidad_pantalla < 13)
     {
         $valor3_n2 = 3;
     }
@@ -287,7 +292,7 @@ if($validar == true)
         $valor3_n2 = $valor4_n2;
     }
 
-    if(($tamano_horizontal * $tamano_vertical) < 9)
+    if($cantidad_pantalla < 9)
     {
         $valor2_n2 = 2;
     }
@@ -296,7 +301,7 @@ if($validar == true)
         $valor2_n2 = $valor3_n2;
     }
 
-    if(($tamano_horizontal * $tamano_vertical) < 5)
+    if($cantidad_pantalla < 5)
     {
         $valor1_n2 = 1;
     }
@@ -305,17 +310,9 @@ if($validar == true)
         $valor1_n2 = $valor2_n2;
     }
 
-    $modelo = "DSCW" + $tamano_horizontal + "X" + $tamano_vertical + "LUY" + $tamano_pantalla + $valor_1 + $valor_2;
-    $precio_de_lista = $factor;
+    echo ", Modelo: ".$modelo = "DSCW".$tamano_horizontal."X".$tamano_vertical."LUY".$tamano_pantalla.$valor_1.$valor_2;
+    echo ", Precio de Lista: ".$precio_de_lista = $factor;
 
-
-
-
-
-
-        
-
-    echo $conjunto;
 
 /*    //enviar correos
     $para1 = $correo;
@@ -340,7 +337,8 @@ if($validar == true)
     $mensaje1.= "Reenvía este correo a tu vendedor para que te realice una cotización formal.<br><br>Que tengas un excelente día.";
 
     //mail($para1,'=?UTF-8?B?'.base64_encode($titulo1).'?=', $mensaje1,$cabeceras1);
-    echo "OK";
+    echo ", OK";
+
 
 
     $para1 = "noe.ortega@syscom.mx";
@@ -363,27 +361,28 @@ if($validar == true)
     $mensaje1.= "Reenvía este correo a tu vendedor para que te realice una cotización formal.<br><br>Que tengas un excelente día.";
 
     //mail($para1,'=?UTF-8?B?'.base64_encode($titulo1).'?=', $mensaje1,$cabeceras1);
-    echo "OK";
+    echo ", OK";
+
 
 
     $arreglo = array($);
 
-    echo "<table>";
-    echo "<tr>";
+    echo ", <table>";
+    echo ", <tr>";
     echo    "<th> Horizontal </th>";
     echo    "<th> Vertical </th>";
-    echo "</tr>";
-    echo "<tr>";
+    echo ", </tr>";
+    echo ", <tr>";
     echo    "<td>" . $tamano_horizontal . "</td>";
     echo    "<td>" . $tamano_vertical . "</td>";
-    echo "</tr>";
-    echo "<tr><td>" . $arreglo[0] . "</td><td>" . $arreglo[1] . "</td></tr>";
-    echo "</table>";
+    echo ", </tr>";
+    echo ", <tr><td>" . $arreglo[0] . "</td><td>" . $arreglo[1] . "</td></tr>";
+    echo ", </table>";
 
 */
 }
 /*else
 {
-    echo "error_recaptcha";
+    echo ", error_recaptcha";
 }*/
 ?>

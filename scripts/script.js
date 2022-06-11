@@ -190,7 +190,7 @@ function x_validar()
 {
     var resultado = 0;
 
-    var arreglo = ["x_tamano_pantalla","x_tipo_instalacion","x_tamano_horizontal","x_tamano_vertical","x_uso","x_cantidad_camaras","x_nombre","x_cliente"];
+    var arreglo = ["x_tamano_pantalla","x_tipo_instalacion","x_tamano_horizontal","x_tamano_vertical","x_uso","x_nombre","x_cliente"];
     for(x=0; x<arreglo.length; x++)
     {
         var id = "#" + arreglo[x];

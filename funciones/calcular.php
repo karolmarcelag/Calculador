@@ -27,10 +27,16 @@ if(1 == 1)
     $vendedor = $_POST["vendedor"];
     $conjunto = "";
 
-    echo ", Pantalla: ".$cantidad_pantalla = $tamano_horizontal * $tamano_vertical;
+    echo "Pantalla: ".$cantidad_pantalla = $tamano_horizontal * $tamano_vertical;
+    intval($cantidad_decodificador);
+    intval($cantidad_controlador);
     $cantidad_decodificador = 0;
+    $cantidad_controlador = 0;
     $valor1_n1 = 0;
     $valor1_n2 = 0;
+    $valor_modelo_j11 = 0;
+    $valor_3 = 0;
+    $valor_f15 = 0;
 
     switch($tamano_pantalla)
     {
@@ -53,6 +59,8 @@ if(1 == 1)
             $pantalla = (($cantidad_pantalla + 1) * 970.83);
             $modelo_pantalla = "DS-D2046LU-Y";
         }
+        break;
+
         case "55":
         {
             $tamano_pantalla = 55;
@@ -75,23 +83,26 @@ if(1 == 1)
         break;
     }
     $conjunto.= "<li>Tamaño de pantalla: $tamano_pantalla pulgadas</li>";
+    echo " (Base piso): ".$base_piso;
+    echo " (Pantalla): ".$pantalla;
     
-    $soporte_pantalla = ($cantidad_pantalla * $valor_soporte_pantalla);
+    echo " (Soporte pantalla): ".$soporte_pantalla = ($cantidad_pantalla * $valor_soporte_pantalla);
 
     switch($tipo_instalacion)
     {
         case "1":
         {
             $tipo_instalacion = "piso";
-            $valor_1 = "/VM";
+            $valor_1 = "";
             $componente_base_piso = "Base de Piso";
             echo ", Base de Piso: ".$cantidad_base_piso = $tamano_horizontal;
-
         }
+        break;
+
         case "2":
         {
             $tipo_instalacion = "pared";
-            $valor_1 = "";
+            $valor_1 = "/WM";
             $componente_base_piso = " ";
             $modelo_base_piso = " ";
             $cantidad_base_piso = " ";
@@ -135,9 +146,19 @@ if(1 == 1)
             $decodificador = $precio_decodificador;
             $j11 = "Decodificador";
             $valor_j11 = $decodificador;
-
-            $conjunto.= "<li>Cantidad de cámaras a ver simultaneamente: $cantidad_camaras</li>";
+            $m1 = "VW";
+            echo ", Decodificador: ".$cantidad_decodificador;
+            $f15 = $valor_f15;
+            $valor_2 = $f15;
+            $f16 = "-";
+            $n1 = $valor1_n1;
+            $cantidad_j11 = $n1;
+            $modelo_j11 = "DS-6919UDI(B)";
+            $n2 = 0;
+            
+            $conjunto.= "<li>Cantidad de cámaras a ver simultaneamente: $cantidad_camaras</li>";   
         }
+        break;
 
         case "2":
         {
@@ -145,7 +166,16 @@ if(1 == 1)
             $caja_senalizacion = 130;
             $j11 = "Caja Señalización";
             $valor_j11 = $caja_senalizacion;
+            $m1 = "DW";
+            $f15 = "-";
+            $valor_2 = "";
+            $f16 = "-";
+            $n1 = 0;
+            echo ", Caja Señalización: ".$cantidad_j11 = 1;
+            $modelo_j11 = "DS-D60C-B";
+            $n2 = 0;
         }
+        break;
 
         case "3":
         {
@@ -180,17 +210,30 @@ if(1 == 1)
             $controlador = $precio_controlador;
             $j11 = "Controlador";
             $valor_j11 = $controlador;
+            $m1 = "CW";
+            echo ", Controlador: ".$cantidad_controlador;
+            $f15 = "-";
+            $valor_2 = $f16;
+            $n1 = 0;
+            $cantidad_j11 = $n2;
+            $f16 = $valor_f16;
+            $modelo_j11 = "DS-C12L-0204H";
+            $n2 = $valor1_n2;
         }
         break;
     }
     $conjunto.= "<li>Uso: $uso</li>";
+    echo " (Cant J11): ".$cantidad_j11;
+    echo " (J11): ".$j11;
+    echo " (J12): ".$valor_j11;
+    echo " (m1): ".$m1;
 
-    $fob = $base_piso + $soporte_pantalla + $pantalla + $valor_j11;
-    $arancel = $pantalla * .15;
-    $subtotal = $fob + $arancel;
-    $flete = $subtotal * .1;
-    $total_landing = $subtotal + $flete;
-    $factor = $total_landing * 2.8;
+    echo " (FOB): ".$fob = $base_piso + $soporte_pantalla + $pantalla + $valor_j11;
+    echo " (Arancel): ".$arancel = $pantalla * .15;
+    echo " (Subtotal): ".$subtotal = $fob + $arancel;
+    echo " (Flete): ".$flete = $subtotal * .1;
+    echo " (Total landing): ".$total_landing = $subtotal + $flete;
+    echo " (Factor): ".$factor = $total_landing * 2.8;
 
     if($cantidad_decodificador == 1)
     {
@@ -201,13 +244,13 @@ if(1 == 1)
         $valor_f15 = "/".$cantidad_decodificador;
     }
 
-    if($j11 == "Decodificador")
+    /*if($j11 == "Decodificador")
     {
         $f15 = $valor_f15;
         $valor_2 = $f15;
         $modelo_j11 = "DS-6919UDI(B)";
         $n1 = $valor1_n1;
-        echo ", Decodificador: ".$cantidad_j11 = $n1;
+        $cantidad_j11 = $n1;
     }
     else
     {
@@ -215,8 +258,8 @@ if(1 == 1)
         $valor_2 = $valor_3;
         $modelo_j11 = $valor_modelo_j11;
         $n1 = 0;
-        echo ", Controlador: ".$cantidad_j11 = $valor_cantidad_j11;
-    }
+        $cantidad_j11 = $valor_cantidad_j11;
+    }*/
 
     if($cantidad_controlador == 1)
     {
@@ -227,7 +270,7 @@ if(1 == 1)
         $valor_f16 = "/".$cantidad_controlador;
     }
 
-    if($j11 == "Controlador")
+    /*if($j11 == "Controlador")
     {
         $f16 = $valor_f16;
         $valor_3 = $f16;
@@ -242,10 +285,9 @@ if(1 == 1)
         $valor_modelo_j11 = "DS-D60C-B";
         $n2 = 0;
         $valor_cantidad_j11 = 1;
-    }
+    }*/
 
     echo ", Soporte Pantalla: ".$cantidad_soporte_pantalla = $cantidad_pantalla;
-
 
     if($cantidad_camaras < 385)
     {
@@ -310,7 +352,7 @@ if(1 == 1)
         $valor1_n2 = $valor2_n2;
     }
 
-    echo ", Modelo: ".$modelo = "DSCW".$tamano_horizontal."X".$tamano_vertical."LUY".$tamano_pantalla.$valor_1.$valor_2;
+    echo ", Modelo: ".$modelo = "DS".$m1.$tamano_horizontal."X".$tamano_vertical."LUY".$tamano_pantalla.$valor_1.$valor_2;
     echo ", Precio de Lista: ".$precio_de_lista = $factor;
 
 

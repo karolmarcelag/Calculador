@@ -1,0 +1,29 @@
+.tabla
+{
+    width: 90%;
+}
+
+.tabla table 
+{
+    border-spacing: 0;
+}
+
+.tabla table thead th,
+.tabla table tbody td,
+caption
+{
+    border: 1px solid #000;
+    padding: 5px;
+    text-align: center;
+}
+
+caption 
+{
+    color: #fff;
+    background: rgb(0, 32, 96);
+}
+
+th 
+{
+    background: rgb(221, 235, 247);
+}

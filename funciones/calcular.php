@@ -35,6 +35,8 @@ if(1 == 1)
     $f16 = 0;
     $n2 = 0;
     $valor_f16 = 0;
+    $medida_horizontal = 0;
+    $medida_vertical = 0;
 
     switch($tamano_pantalla)
     {
@@ -105,6 +107,27 @@ if(1 == 1)
             $cantidad_base_piso = " ";
         }
         break;
+    }
+
+    if($tamano_pantalla == 46 && $tipo_instalacion == 1)
+    {
+        $medida_horizontal = $tamano_horizontal*1.02;
+        $medida_vertical = $tamano_vertical*.58+.8;
+    }
+    elseif($tamano_pantalla == 46)
+    {
+        $medida_horizontal = $tamano_horizontal*1.02;
+        $medida_vertical = $tamano_vertical*.58;
+    }
+    elseif($tamano_pantalla == 55 && $tipo_instalacion == 1)
+    {
+        $medida_horizontal = $tamano_horizontal*1.21;
+        $medida_vertical = $tamano_vertical*.68+.8;
+    }
+    else
+    {
+        $medida_horizontal = $tamano_horizontal*1.21;
+        $medida_vertical = $tamano_vertical*.68;
     }
 
     if($cantidad_camaras < 129)

@@ -80,8 +80,8 @@ $mensaje = "
                             <tr>
                                 <td>".$tamano_pantalla."</td>
                                 <td>".$tipo_instalacion."</td>
-                                <td>".$H."</td>
-                                <td>".$V."</td>
+                                <td>".$medida_horizontal."</td>
+                                <td>".$medida_vertical."</td>
                                 <td>".$tamano_horizontal."</td>
                                 <td>".$tamano_vertical."</td>
                                 <td>".$uso."</td>"

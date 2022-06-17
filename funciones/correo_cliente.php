@@ -1,6 +1,6 @@
 <?php
 
-$nombre = "Xavier Guereque";
+/*$nombre = "Xavier Guereque";
 $cliente = "123";
 $correo = "xavier@correo.com";
 $vendedor = "Noe Ortega";
@@ -28,7 +28,7 @@ $t_soporte = "6";
 $t_base = "3";
 
 $modelo = "DSVW3X2LUY55";
-$precio_de_lista = "$30,006.90";
+$precio_de_lista = "$30,006.90";*/
 
 $mensaje = "";
 
@@ -75,9 +75,12 @@ $mensaje = "
                                 <td>".$medida_vertical."</td>
                                 <td>".$tamano_horizontal."</td>
                                 <td>".$tamano_vertical."</td>
-                                <td>".$uso."</td>
-                                <td>".$cantidad_camaras."</td>
-                            </tr>
+                                <td>".$uso."</td>"
+                                if ($uso == 1)
+                                {
+                                    "<td>".$cantidad_camaras."</td>"
+                                }
+                            "</tr>
                         </tbod>
                     </table>
                 </div>
@@ -109,25 +112,28 @@ $mensaje = "
                         </thead>
                         <tbod>
                             <tr>
-                                <td>".$c_pantalla."</td>
-                                <td>".$m_pantalla."</td>
-                                <td>".$t_pantalla."</td>
+                                <td>Pantalla</td>
+                                <td>".$modelo_pantalla."</td>
+                                <td>".$cantidad_pantalla."</td>
                             </tr>
                             <tr>
-                                <td>".$c_decodificador."</td>
-                                <td>".$m_decodificador."</td>
-                                <td>".$t_decodificador."</td>
+                                <td>".$j11."</td>
+                                <td>".$modelo_j11."</td>
+                                <td>".$cantidad_j11."</td>
                             </tr>
                             <tr>
-                                <td>".$c_soporte."</td>
-                                <td>".$m_soporte."</td>
-                                <td>".$t_soporte."</td>
+                                <td>Soporte Pantalla</td>
+                                <td>".$modelo_soporte_pantalla."</td>
+                                <td>".$cantidad_soporte_pantalla."</td>
                             </tr>
-                            <tr>
-                                <td>".$c_base."</td>
-                                <td>".$m_base."</td>
-                                <td>".$t_base."</td>
-                            </tr>
+                            <tr>"
+                                if($tipo_instalacion == 1)
+                                {
+                                    "<td>Base de Piso</td>
+                                    <td>".$modelo_base_piso."</td>
+                                    <td>".$cantidad_base_piso."</td>"
+                                }
+                            "</tr>
                         </tbod>
                     </table>
                 </div>

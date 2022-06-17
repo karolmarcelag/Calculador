@@ -1,6 +1,6 @@
 <?php
 
-$nombre = "Xavier Guereque";
+/*$nombre = "Xavier Guereque";
 $cliente = "123";
 $correo = "xavier@correo.com";
 $vendedor = "Noe Ortega";
@@ -39,7 +39,7 @@ $t_soporte = "6";
 $t_base = "3";
 
 $modelo = "DSVW3X2LUY55";
-$precio_de_lista = "$30,006.90";
+$precio_de_lista = "$30,006.90";*/
 
 $mensaje = "";
 

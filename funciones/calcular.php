@@ -317,6 +317,8 @@ if(1 == 1)
     }
 
     //enviar correos
+    //include "correo_pm.php";
+    //include "correo_cliente.php";
 }
 /*else
 {

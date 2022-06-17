@@ -14,17 +14,6 @@ $tamano_vertical = "2.16m";
 $uso = "Videovigilancia";
 $cantidad_camaras = "16";
 
-$base_piso = "$780";
-$soporte_pantalla = "$720.00";
-$pantalla = "$5,950.00";
-$decodificador = "$1,400.00";
-$fob = "$8,850.00";
-$arancel = "$892.50";
-$subtotal = "$9,742.50";
-$flete = "$874.25";
-$total_landing = "$10,716.75";
-$factor = "$30,006.90";
-
 $c_pantalla ="Pantalla";
 $c_decodificador = "Decodificador";
 $c_soporte = "Soporte Pantalla";
@@ -43,8 +32,8 @@ $precio_de_lista = "$30,006.90";
 
 $mensaje = "";
 
-$nombre_noti = "Xavier Guereque";
-$correo_noti = "xavier.guereque@syscom.mx";
+$nombre_noti = "Noé Ortega";
+$correo_noti = "noe.ortega@syscom.mx";
 
 $titulo = "Cálculo de Videowalls - Privado";
 echo $mensaje = "
@@ -58,9 +47,11 @@ echo $mensaje = "
                 <div><img src='https://ingenieria.syscom.mx/imagenes/logo-syscom.png'></div>
             </div>
             <div class='contenido'>
-                A continuación se muestra el cálculo de un Videowall realizado por un nuevo cliente.
-                <br><br>
-                Número de cliente: <b>$cliente</b>."."<br>Correo de contacto: <b>$correo</b>."."<br>Vendedor: <b>$vendedor</b>.<br><br>
+
+                $mensaje
+                Hola ¡<b>$nombre</b>!<br><br>
+                Gracias por utilizar el calculador de Videowalls de SYSCOM. A continuación mencionamos los requisitos solicitados y los equipos que necesitas:<br><br>
+
                 <link href='../estilos/estiloTabla.css' rel='stylesheet'>
                 <div class='tabla'>
                     <table>
@@ -93,40 +84,6 @@ echo $mensaje = "
                 
                 <div class='tabla'>
                     <table>
-                    <caption>Componentes + 1 Pantalla</caption>
-                        <thead>
-                            <tr>
-                                <th>Base Piso</th>
-                                <th>Soporte Pantalla</th>
-                                <th>Pantalla</th>
-                                <th>Decodificador</th>
-                                <th>FOB</th>
-                                <th>Arancel (15% Pantallas)</th>
-                                <th>Subtotal</th>
-                                <th>Flete (10%)</th>
-                                <th>Total "."landing"."</th>
-                                <th>Factor 2.8</th>
-                            </tr>
-                        </thead>
-                        <tbod>
-                            <tr>
-                                <td>".$base_piso."</td>
-                                <td>".$soporte_pantalla."</td>
-                                <td>".$pantalla."</td>
-                                <td>".$decodificador."</td>
-                                <td>".$fob."</td>
-                                <td>".$arancel."</td>
-                                <td>".$subtotal."</td>
-                                <td>".$flete."</td>
-                                <td>".$total_landing."</td>
-                                <td>".$factor."</td>
-                            </tr>
-                        </tbod>
-                    </table>
-                </div>
-                
-                <div class='tabla'>
-                    <table>
                         <tbod>
                             <tr>
                                 <td>Modelo</td>
@@ -140,8 +97,8 @@ echo $mensaje = "
                     </table>
                 </div>
                 
-                <div class='tabla'>
-                    <table style='margin-bottom: 0px;'>
+                <div class='tabla componentes'>
+                    <table>
                     <caption>Componentes</caption>
                         <thead>
                             <tr>
@@ -174,6 +131,10 @@ echo $mensaje = "
                         </tbod>
                     </table>
                 </div>
+
+                $mensaje
+                Reenvía este correo a tu vendedor para que te realice una cotización formal.<br><br>Que tengas un excelente día.
+
             </div>
             <div class='fuera'>
                 <p class='titulo2'>
@@ -192,3 +153,4 @@ $titulo1 = "Cálculo de Videowalls - Privado";
 $cabeceras1  = "MIME-Version: 1.0"."\r\n";
 $cabeceras1 .= "Content-type: text/html; charset=utf-8"."\r\n";
 $cabeceras1 .= "From: Calculador de Videowalls <calculador-videowalls@syscom.mx>"."\r\n";
+//$cabeceras .= 'Reply-to: '.$nombre_noti.' <'.$correo_noti.'>'."\r\n";

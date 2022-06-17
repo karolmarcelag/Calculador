@@ -1,11 +1,74 @@
+.cuerpo 
+{
+    font-family: 'Arial', sans-serif;
+    font-size:14px;
+    background:#E6E6E6;
+    color:#424242;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+}
+
+b
+{
+    color:#000;
+}
+
+.titulo1,
+.titulo2 
+{
+    text-align:center;
+}
+
+.contenido
+{
+    width:80%;
+    margin-left:10%;
+    background:#FFF;
+    padding:8px;
+    box-shadow: 3px 3px 6px #999;
+    border: .5px solid #BDBDBD;
+    line-height: 1.8
+}
+
+.fuera
+{
+    width:80%;
+    margin-left:10%;
+    padding:8px;
+}
+
+.liga_noti
+{
+    width: 60%;
+    margin-left: 20%;
+    height: 35px;
+    border: none;
+    background: #d2d2d2;
+    color: #000;
+    font-weight: bold;
+}
+
+img
+{
+    width: 200px;
+    margin-top: -15px;
+    margin-bottom: -15px;
+    margin-left: -15px;
+}
+
 .tabla
 {
     width: 90%;
+    
 }
 
 .tabla table 
 {
     border-spacing: 0;
+    font-size: 14px;
+    margin-bottom: 25px;
 }
 
 .tabla table thead th,
@@ -20,10 +83,10 @@ caption
 caption 
 {
     color: #fff;
-    background: rgb(0, 32, 96);
+    background: #525252;
 }
 
 th 
 {
-    background: rgb(221, 235, 247);
+    background: #E6E6E6;
 }

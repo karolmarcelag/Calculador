@@ -36,7 +36,7 @@ $nombre_noti = "Noé Ortega";
 $correo_noti = "noe.ortega@syscom.mx";
 
 $titulo = "Cálculo de Videowalls - Privado";
-echo $mensaje = "
+$mensaje = "
 <html>
     <head>
         <title>Cálculo Videowall</title>

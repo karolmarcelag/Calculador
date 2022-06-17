@@ -25,7 +25,6 @@ if(1 == 1)
     $nombre = $_POST["nombre"];
     $correo = $_POST["correo"];
     $vendedor = $_POST["vendedor"];
-    $conjunto = "";
 
     echo "Pantalla: ".$cantidad_pantalla = $tamano_horizontal * $tamano_vertical;
     $cantidad_decodificador = 0;
@@ -81,7 +80,6 @@ if(1 == 1)
         }
         break;
     }
-    $conjunto.= "<li>Tamaño de pantalla: $tamano_pantalla pulgadas</li>";
     echo " (Base piso): ".$base_piso;
     echo " (Pantalla): ".$pantalla;
     
@@ -107,12 +105,6 @@ if(1 == 1)
             $cantidad_base_piso = " ";
         }
         break;
-    }
-    $conjunto.= "<li>Tipo de instalación: $tipo_instalacion</li>";
-    
-    if($tamano_horizontal != "" && $tamano_vertical != "")
-    {
-        $conjunto.= "<li>$tamano_horizontal x $tamano_vertical</li>";
     }
 
     if($cantidad_camaras < 129)
@@ -211,8 +203,6 @@ if(1 == 1)
             $cantidad_j11 = $n1;
             $modelo_j11 = "DS-6919UDI(B)";
             $n2 = 0;
-            
-            $conjunto.= "<li>Cantidad de cámaras a ver simultaneamente: $cantidad_camaras</li>";   
         }
         break;
 
@@ -286,7 +276,6 @@ if(1 == 1)
         }
         break;
     }
-    $conjunto.= "<li>Uso: $uso</li>";
     echo " (Cant J11): ".$cantidad_j11;
     echo " (J11): ".$j11;
     echo " (J12): ".$valor_j11;
@@ -317,7 +306,7 @@ if(1 == 1)
     }
 
     //enviar correos
-    //include "correo_pm.php";
+    include "correo_pm.php";
     //include "correo_cliente.php";
 }
 /*else

@@ -7,8 +7,8 @@ $vendedor = "Noe Ortega";
 
 $tamano_pantalla = "46";
 $tipo_instalacion = "Piso";
-$H = "3";
-$V = "2";
+$medida_horizontal = "3";
+$medida_vertical = "2";
 $tamano_horizontal = "3.63m";
 $tamano_vertical = "2.16m";
 $uso = "Videovigilancia";

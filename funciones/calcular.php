@@ -1,5 +1,6 @@
 <?php
-/*$llave_secreta = "6LdaNHgUAAAAAB9hyap316cQ7QIJoawu27xTFYlD";
+
+$llave_secreta = "6LcgYK8gAAAAAD_cWoZnhg1DAUOnpDyz0MMqN1ah";
 $recapcha = $_POST["recaptcha"];
 
 $ch = curl_init('https://www.google.com/recaptcha/api/siteverify'); //Lo primerito, creamos una variable iniciando curl, pasándole la url
@@ -8,11 +9,10 @@ curl_setopt ($ch, CURLOPT_POSTFIELDS, "secret=$llave_secreta&response=$recapcha"
 curl_setopt($ch,CURLOPT_RETURNTRANSFER,true); //le decimos que queremos recoger una respuesta (si no esperas respuesta, ponlo a false)
 $respuesta = curl_exec ($ch); //recogemos la respuesta
 //$error = curl_error($ch); //o el error, por si falla
-curl_close ($ch); //y finalmente cerramos curl*/
+curl_close ($ch); //y finalmente cerramos curl
 
-//$validar = strpos($respuesta,"true");
-//if($validar == true)
-if(1 == 1)
+$validar = strpos($respuesta,"true");
+if($validar == true)
 {
     $tamano_pantalla = $_POST["tamano_pantalla"];
     $tipo_instalacion = $_POST["tipo_instalacion"];
@@ -26,7 +26,7 @@ if(1 == 1)
     $correo = $_POST["correo"];
     $vendedor = $_POST["vendedor"];
 
-    echo "Pantalla: ".$cantidad_pantalla = $tamano_horizontal * $tamano_vertical;
+    $cantidad_pantalla = $tamano_horizontal * $tamano_vertical;
     $cantidad_decodificador = 0;
     $cantidad_controlador = 0;
     $valor_modelo_j11 = 0;
@@ -82,10 +82,8 @@ if(1 == 1)
         }
         break;
     }
-    echo " (Base piso): ".$base_piso;
-    echo " (Pantalla): ".$pantalla;
     
-    echo " (Soporte pantalla): ".$soporte_pantalla = ($cantidad_pantalla * $valor_soporte_pantalla);
+    $soporte_pantalla = ($cantidad_pantalla * $valor_soporte_pantalla);
 
     switch($tipo_instalacion)
     {
@@ -94,7 +92,7 @@ if(1 == 1)
             $tipo_instalacion = "piso";
             $valor_1 = "";
             $componente_base_piso = "Base de Piso";
-            echo ", Base de Piso: ".$cantidad_base_piso = $tamano_horizontal;
+            $cantidad_base_piso = $tamano_horizontal;
         }
         break;
 
@@ -217,7 +215,6 @@ if(1 == 1)
             $j11 = "Decodificador";
             $valor_j11 = $decodificador;
             $m1 = "VW";
-            echo ", Decodificador: ".$cantidad_decodificador;
             
             $f15 = $valor_f15;
             $valor_2 = $f15;
@@ -241,7 +238,7 @@ if(1 == 1)
             $valor_2 = "";
             $f16 = "-";
             $n1 = 0;
-            echo ", Caja Señalización: ".$cantidad_j11 = 1;
+            $cantidad_j11 = 1;
             $modelo_j11 = "DS-D60C-B";
             $n2 = 0;
         }
@@ -287,7 +284,6 @@ if(1 == 1)
             $j11 = "Controlador";
             $valor_j11 = $controlador;
             $m1 = "CW";
-            echo ", Controlador: ".$cantidad_controlador;
             
             $f15 = "-";
             $f16 = $valor_f16;
@@ -299,10 +295,6 @@ if(1 == 1)
         }
         break;
     }
-    echo " (Cant J11): ".$cantidad_j11;
-    echo " (J11): ".$j11;
-    echo " (J12): ".$valor_j11;
-    echo " (m1): ".$m1;
 
     if($cantidad_decodificador == 1)
     {
@@ -315,25 +307,29 @@ if(1 == 1)
 
     if($valor_j11 != "No Posible")
     {
-        echo " (FOB): ".$fob = $base_piso + $soporte_pantalla + $pantalla + $valor_j11;
-        echo " (Arancel): ".$arancel = $pantalla * .15;
-        echo " (Subtotal): ".$subtotal = $fob + $arancel;
-        echo " (Flete): ".$flete = $subtotal * .1;
-        echo " (Total landing): ".$total_landing = $subtotal + $flete;
-        echo " (Factor): ".$factor = $total_landing * 2.8;
-
-        echo ", Soporte Pantalla: ".$cantidad_soporte_pantalla = $cantidad_pantalla;
-
-        echo ", Modelo: ".$modelo = "DS".$m1.$tamano_horizontal."X".$tamano_vertical."LUY".$tamano_pantalla.$valor_1.$valor_2;
-        echo ", Precio de Lista: ".$precio_de_lista = $factor;
+        $fob = $base_piso + $soporte_pantalla + $pantalla + $valor_j11;
+        $arancel = $pantalla * .15;
+        $subtotal = $fob + $arancel;
+        $flete = $subtotal * .1;
+        $total_landing = $subtotal + $flete;
+        $factor = $total_landing * 2.8;
+        $cantidad_soporte_pantalla = $cantidad_pantalla;
+        $modelo = "DS".$m1.$tamano_horizontal."X".$tamano_vertical."LUY".$tamano_pantalla.$valor_1.$valor_2;
+        $precio_de_lista = $factor;
+        echo "1";
+    }
+    else
+    {
+        echo "-1";
     }
 
     //enviar correos
     include "correo_pm.php";
-    //include "correo_cliente.php";
+    include "correo_cliente.php";
 }
-/*else
+else
 {
-    echo ", error_recaptcha";
-}*/
+    echo "-2";
+}
+
 ?>

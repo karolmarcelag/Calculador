@@ -1,56 +1,97 @@
 <?php
 
-/*$nombre = "Xavier Guereque";
-$cliente = "123";
-$correo = "xavier@correo.com";
-$vendedor = "Noe Ortega";
-
-$tamano_pantalla = "46";
-$tipo_instalacion = "Piso";
-$medida_horizontal = "3";
-$medida_vertical = "2";
-$tamano_horizontal = "3.63m";
-$tamano_vertical = "2.16m";
-$uso = "Videovigilancia";
-$cantidad_camaras = "16";
-
-$base_piso = "$780";
-$soporte_pantalla = "$720.00";
-$pantalla = "$5,950.00";
-$decodificador = "$1,400.00";
-$fob = "$8,850.00";
-$arancel = "$892.50";
-$subtotal = "$9,742.50";
-$flete = "$874.25";
-$total_landing = "$10,716.75";
-$factor = "$30,006.90";
-
-$c_pantalla ="Pantalla";
-$c_decodificador = "Decodificador";
-$c_soporte = "Soporte Pantalla";
-$c_base = "Base de Piso";
-$m_pantalla ="DS-D2055LU-Y";
-$m_decodificador = "DS-6916UDI(B)";
-$m_soporte = "DS-DN55B3M/F";
-$m_base = "DS-DN55B3M/B";
-$t_pantalla ="6";
-$t_decodificador = "1";
-$t_soporte = "6";
-$t_base = "3";
-
-$modelo = "DSVW3X2LUY55";
-$precio_de_lista = "$30,006.90";*/
-
-$mensaje = "";
-
-$nombre_noti = "Xavier Guereque";
-$correo_noti = "xavier.guereque@syscom.mx";
-
-$titulo = "Cálculo de Videowalls - Privado";
+$titulo = "Calcualdor de Videowalls";
 $mensaje = "
 <html>
     <head>
-        <title>Cálculo Videowall</title>
+        <meta charset='utf-8'>
+        <title>Calcualdor de Videowalls</title>
+        <style>
+            .cuerpo 
+            {
+                font-family: 'Arial', sans-serif;
+                font-size:14px;
+                background:#E6E6E6;
+                color:#424242;
+                width:100%;
+                height:100%;
+                top:0;
+                left:0;
+            }
+            b
+            {
+                color:#000;
+            }
+            .titulo1,
+            .titulo2 
+            {
+                text-align:center;
+            }
+            .tituloSolo
+            {
+                background: #E6E6E6;
+                font-weight: bold;
+            }
+            .contenido
+            {
+                width:80%;
+                margin-left:10%;
+                background:#FFF;
+                padding:8px;
+                box-shadow: 3px 3px 6px #999;
+                border: .5px solid #BDBDBD;
+                line-height: 1.8
+            }
+            .fuera
+            {
+                width:80%;
+                margin-left:10%;
+                padding:8px;
+            }
+            .liga_noti
+            {
+                width: 60%;
+                margin-left: 20%;
+                height: 35px;
+                border: none;
+                background: #d2d2d2;
+                color: #000;
+                font-weight: bold;
+            }
+            img
+            {
+                width: 200px;
+                margin-top: -15px;
+                margin-bottom: -15px;
+                margin-left: -15px;
+            }
+            .tabla
+            {
+                width: 90%;
+            }
+            .tabla table 
+            {
+                border-spacing: 0;
+                font-size: 14px;
+                margin-bottom: 25px;
+            }
+            .tabla table thead th,
+            .tabla table tbody td, caption
+            {
+                border: 1px solid #000;
+                padding: 5px;
+                text-align: center;
+            }
+            caption 
+            {
+                color: #fff;
+                background: #525252;
+            }
+            th 
+            {
+                background: #E6E6E6;
+            }
+        </style>
     </head>
     <body>
         <div class='cuerpo'>
@@ -60,8 +101,18 @@ $mensaje = "
             <div class='contenido'>
                 A continuación se muestra el cálculo de un Videowall realizado por un nuevo cliente.
                 <br><br>
-                Nombre de cliente: <b>$nombre</b>."."<br>Número de cliente: <b>$cliente</b>."."<br>Correo de contacto: <b>$correo</b>."."<br>Vendedor: <b>$vendedor</b>.<br><br>
-                <link href='../estilos/estiloTabla.css' rel='stylesheet'>
+                Nombre de cliente: <b>$nombre</b><br>
+                Número de cliente: <b>$cliente</b><br>
+                Correo de contacto: <b>$correo</b><br>";
+
+                if($vendedor != "")
+                {
+                    $mensaje.=
+                    "Vendedor: <b>$vendedor</b><br>";
+                }
+                
+                $mensaje.=
+                "<br>
                 <div class='tabla'>
                     <table>
                         <thead>
@@ -72,25 +123,31 @@ $mensaje = "
                                 <th>Vertical</th>
                                 <th>Medida Horizontal</th>
                                 <th>Medida Vertical</th>
-                                <th>Uso</th>
-                                <th>Cant. de cám. simul.</th>
-                            </tr>
-                        </thead>
-                        <tbod>
-                            <tr>
-                                <td>".$tamano_pantalla."</td>
-                                <td>".$tipo_instalacion."</td>
-                                <td>".$medida_horizontal."</td>
-                                <td>".$medida_vertical."</td>
-                                <td>".$tamano_horizontal."</td>
-                                <td>".$tamano_vertical."</td>
-                                <td>".$uso."</td>"
-                                if ($uso == 1)
+                                <th>Uso</th>";
+                                if ($uso == "Videovigilancia")
                                 {
-                                    "<td>".$cantidad_camaras."</td>"
+                                    $mensaje.= 
+                                    "<th>Cant. de cám. simul.</th>";
                                 }
+                            $mensaje.=
                             "</tr>
-                        </tbod>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>$tamano_pantalla</td>
+                                <td>$tipo_instalacion</td>
+                                <td>$medida_horizontal</td>
+                                <td>$medida_vertical</td>
+                                <td>$tamano_horizontal</td>
+                                <td>$tamano_vertical</td>
+                                <td>$uso</td>";
+                                if ($uso == "Videovigilancia")
+                                {
+                                    $mensaje.= "<td>$cantidad_camaras</td>";
+                                }
+                            $mensaje.=    
+                            "</tr>
+                        </tbody>
                     </table>
                 </div>
                 
@@ -98,15 +155,15 @@ $mensaje = "
                     <table>
                     <caption>Componentes + 1 Pantalla</caption>
                         <thead>
-                            <tr>"
-                                if($tipo_instalacion == 1)
+                            <tr>";
+                                if($tipo_instalacion == "piso")
                                 {
-                                    "<th>Base Piso</th>"
+                                    $mensaje.= "<th>Base Piso</th>";
                                 }
+                                $mensaje.= 
                                 "<th>Soporte Pantalla</th>
                                 <th>Pantalla</th>
-                                <th>".$j11."</th>
-                                <th>Decodificador</th>
+                                <th>$j11</th>
                                 <th>FOB</th>
                                 <th>Arancel (15% Pantallas)</th>
                                 <th>Subtotal</th>
@@ -115,38 +172,39 @@ $mensaje = "
                                 <th>Factor 2.8</th>
                             </tr>
                         </thead>
-                        <tbod>
-                            <tr>"
-                                if($tipo_instalacion == 1)
+                        <tbody>
+                            <tr>";
+                                if($tipo_instalacion == "piso")
                                 {
-                                    "<td>".$base_piso."</td>"
+                                    $mensaje.= "<td>$base_piso</td>";
                                 }
-                                "<td>".$soporte_pantalla."</td>
-                                <td>".$pantalla."</td>"
-                                "<td>".$valor_j11."</td>"
-                                "<td>".$fob."</td>
-                                <td>".$arancel."</td>
-                                <td>".$subtotal."</td>
-                                <td>".$flete."</td>
-                                <td>".$total_landing."</td>
-                                <td>".$factor."</td>
+                                $mensaje.= 
+                                "<td>$soporte_pantalla</td>
+                                <td>$pantalla</td>
+                                <td>$valor_j11</td>
+                                <td>$fob</td>
+                                <td>$arancel</td>
+                                <td>$subtotal</td>
+                                <td>$flete</td>
+                                <td>$total_landing</td>
+                                <td>$factor</td>
                             </tr>
-                        </tbod>
+                        </tbody>
                     </table>
                 </div>
                 
                 <div class='tabla'>
                     <table>
-                        <tbod>
+                        <tbody>
                             <tr>
-                                <td>Modelo</td>
-                                <td><b>".$modelo."</b></td>
+                                <td class='tituloSolo'>Modelo</td>
+                                <td><b>$modelo</b></td>
                             </tr>
                             <tr>
-                                <td>Precio de Lista</td>
-                                <td><b>".$precio_de_lista."</b></td>
+                                <td class='tituloSolo'>Precio de Lista</td>
+                                <td><b>$precio_de_lista</b></td>
                             </tr>
-                        </tbod>
+                        </tbody>
                     </table>
                 </div>
                 
@@ -160,31 +218,34 @@ $mensaje = "
                                 <th>Cant.</th>
                             </tr>
                         </thead>
-                        <tbod>
+                        <tbody>
                             <tr>
                                 <td>Pantalla</td>
-                                <td>".$modelo_pantalla."</td>
-                                <td>".$cantidad_pantalla."</td>
+                                <td>$modelo_pantalla</td>
+                                <td>$cantidad_pantalla</td>
                             </tr>
                             <tr>
-                                <td>".$j11."</td>
-                                <td>".$modelo_j11."</td>
-                                <td>".$cantidad_j11."</td>
+                                <td>$j11</td>
+                                <td>$modelo_j11</td>
+                                <td>$cantidad_j11</td>
                             </tr>
                             <tr>
                                 <td>Soporte Pantalla</td>
-                                <td>".$modelo_soporte_pantalla."</td>
-                                <td>".$cantidad_soporte_pantalla."</td>
-                            </tr>
-                            <tr>"
-                                if($tipo_instalacion == 1)
-                                {
-                                    "<td>Base de Piso</td>
-                                    <td>".$modelo_base_piso."</td>
-                                    <td>".$cantidad_base_piso."</td>"
-                                }
+                                <td>$modelo_soporte_pantalla</td>
+                                <td>$cantidad_soporte_pantalla</td>
+                            </tr>";
+                            if($tipo_instalacion == "piso")
+                            {
+                                $mensaje.= 
+                                "<tr>
+                                    <td>Base de Piso</td>
+                                    <td>$modelo_base_piso</td>
+                                    <td>$cantidad_base_piso</td>
+                                </tr>";
+                            }
+                            $mensaje.=
                             "</tr>
-                        </tbod>
+                        </tbody>
                     </table>
                 </div>
             </div>
@@ -200,8 +261,10 @@ $mensaje = "
     </body>
 </html>";
 
-$para1 = "noe.ortega@syscom.mx";
-$titulo1 = "Cálculo de Videowalls - Privado";
-$cabeceras1  = "MIME-Version: 1.0"."\r\n";
-$cabeceras1 .= "Content-type: text/html; charset=utf-8"."\r\n";
-$cabeceras1 .= "From: Calculador de Videowalls <calculador-videowalls@syscom.mx>"."\r\n";
+$para = "noe.ortega@syscom.mx";
+$titulo = "Calculador de Videowalls";
+$cabeceras  = "MIME-Version: 1.0"."\r\n";
+$cabeceras .= "Content-type: text/html; charset=utf-8"."\r\n";
+$cabeceras .= "From: Calculador de Videowalls <calculador-videowalls@syscom.mx>"."\r\n";
+
+mail($para,'=?UTF-8?B?'.base64_encode($titulo).'?=', $mensaje,$cabeceras);

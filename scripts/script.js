@@ -1,13 +1,5 @@
 var x=1;
 
-/*$(document).ready(function() 
-{
-    $("#x_color").mousemove(function( event ) 
-    {
-        console.log("movimiento");
-    })
-})*/
-
 function desbloquear()
 {
      if($("#x_tamano_pantalla").val() == 46 || 55)
@@ -144,8 +136,8 @@ function x_guardar()
 {
     if(x_validar() == true)
     {
-        //$("#x_esperar").html("<img src='imagenes/esperar.gif' style='width:34px; position:absolute; margin-left:50%; left:-17px'>");
-        //$("#x_guardar").css({"display":"none"});
+        $("#x_esperar").html("<img src='imagenes/esperar.gif' style='width:34px; position:absolute; margin-left:50%; left:-17px'>");
+        $("#x_guardar").css({"display":"none"});
         $.post("funciones/calcular.php", 
         {
             tamano_pantalla: $("#x_tamano_pantalla").val(),
@@ -157,31 +149,31 @@ function x_guardar()
             cliente: $("#x_cliente").val(),
             nombre: $("#x_nombre").val(),
             correo: $("#x_correo").val(),
-            vendedor: $("#x_vendedor").val()
-            /*recaptcha: $("#g-recaptcha-response").val()*/
+            vendedor: $("#x_vendedor").val(),
+            recaptcha: $("#g-recaptcha-response").val()
         }, 
         function(resultado)
         {
-            console.log(resultado)
-            /*switch("OK")
+            switch(parseInt(resultado))
             {
-                case "OK":
+                case 1:
                 {
                     alert("La recomendación de equipos fue enviada a su correo electrónico.");
                     location.reload();
                 }
                 break;
-                /*case "error_recaptcha":
-                {
-                    alert("Error al validar reCAPTCHA, su dirección IP fue agregada a la lista de investigación.\n\nPor favor espere un momento para validar otro.");
-                }
-                break;
-                default:
+                case -1:
                 {
                     alert("Se produjo un error inesperado, por favor contacte al administrador.\n\nError: " + resultado);
                 }
                 break;
-            }*/
+
+                case -2:
+                {
+                    alert("Error al validar reCAPTCHA, su dirección IP fue agregada a la lista de investigación.\n\nPor favor espere un momento para validar otro.");
+                }
+                break;
+            }
         });
     }
 }
@@ -223,7 +215,7 @@ function x_validar()
         }
     }
 
-    /*if($("#g-recaptcha-response").val() == "")
+    if($("#g-recaptcha-response").val() == "")
     {
         resultado++;
         $("#x_captcha").css({"background":"red","border-radius":"7px"});
@@ -231,7 +223,7 @@ function x_validar()
     else
     {
         $("#x_captcha").css({"background":"none","border-radius":"none"});
-    }*/
+    }
 
     var correo = $("#x_correo").val();
     if(correo.indexOf('@') == -1 || correo.indexOf('.') == -1)
